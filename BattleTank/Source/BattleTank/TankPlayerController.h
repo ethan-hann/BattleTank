@@ -18,10 +18,13 @@ public:
 	virtual void BeginPlay() override;
 	virtual void Tick(float DeltaTime) override;
 
+protected:
+	UFUNCTION(BlueprintCallable, Category = "Setup")
+	ATank* GetControlledTank() const;
+
 private:
 	//Start the tank moving the barrel so that a shot would hit where the cross-hair intersects the world
 	void AimTowardsCrosshair();
-	ATank* GetControlledTank() const;
 
 	//Modifies out parameter, returns true if hit landscape
 	bool GetSightRayHitLocation(FVector& HitLocation) const;

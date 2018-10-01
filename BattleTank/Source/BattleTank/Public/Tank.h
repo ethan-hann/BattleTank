@@ -44,6 +44,7 @@ public:
 	double ReloadTimeInSeconds = 3;
 
 protected:
+	UPROPERTY(BlueprintReadOnly)
 	UTankAimingComponent* TankAimingComponent = nullptr;
 
 	UPROPERTY(BlueprintReadOnly)
