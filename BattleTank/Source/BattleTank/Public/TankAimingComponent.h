@@ -1,4 +1,4 @@
-// Fill out your copyright notice in the Description page of Project Settings.
+//Copyright Kelvin's Games 2018
 
 #pragma once
 
@@ -20,17 +20,18 @@ class UTankBarrel;
 class UTankTurret;
 
 //Hold barrel's properties and Elevate method
-UCLASS( ClassGroup=(Custom), meta=(BlueprintSpawnableComponent) )
+UCLASS(ClassGroup = (Custom), meta = (BlueprintSpawnableComponent))
 class BATTLETANK_API UTankAimingComponent : public UActorComponent
 {
 	GENERATED_BODY()
 
-public:	
+public:
 	UTankAimingComponent();
 
 	void AimAt(FVector HitLocation, float LaunchSpeed);
-	void SetBarrelReference(UTankBarrel* BarrelToSet);
-	void SetTurretReference(UTankTurret* TurretToSet);
+
+	UFUNCTION(BlueprintCallable, Category = "Setup")
+	void Initialze(UTankBarrel* BarrelToSet, UTankTurret* TurretToSet);
 
 protected:
 	UPROPERTY(BlueprintReadOnly, Category = "State")
