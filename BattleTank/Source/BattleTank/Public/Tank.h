@@ -7,7 +7,6 @@
 #include "Tank.generated.h"
 
 //Forward declarations
-class UTankAimingComponent;
 class AProjectile;
 class UTankBarrel;
 
@@ -20,7 +19,6 @@ public:
 	void BeginPlay() override;
 
 	ATank();
-	void AimAt(FVector HitLocation);
 
 	UFUNCTION(BlueprintCallable, Category = Functionality)
 	void Fire();
@@ -34,10 +32,6 @@ public:
 
 	UPROPERTY(EditDefaultsOnly, Category = Firing)
 	double ReloadTimeInSeconds = 3;
-
-protected:
-	UPROPERTY(BlueprintReadOnly)
-	UTankAimingComponent* TankAimingComponent = nullptr;
 
 private:
 
