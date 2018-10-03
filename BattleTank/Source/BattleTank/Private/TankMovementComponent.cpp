@@ -25,16 +25,25 @@ void UTankMovementComponent::RequestDirectMove(const FVector& MoveVelocity, bool
 
 void UTankMovementComponent::IntendMoveForward(float Throw)
 {
-	Throw = FMath::Clamp<float>(Throw, -0.8f, 0.8f);
+	Throw = FMath::Clamp<float>(Throw, -1.f, 1.f);
 	LeftTrack->SetThrottle(Throw);
 	RightTrack->SetThrottle(Throw);
 }
 
 void UTankMovementComponent::IntendTurnRight(float Throw)
 {
-	Throw = FMath::Clamp<float>(Throw, -0.8f, 0.8f);  //clamped to prevent turning to fast
+	Throw = FMath::Clamp<float>(Throw, -1.f, 1.f);  //clamped to prevent turning to fast
 	LeftTrack->SetThrottle(Throw);
 	RightTrack->SetThrottle(-Throw);
+}
+
+void UTankMovementComponent::Reset()
+{
+	FVector CurrentPosition = GetOwner()->GetActorLocation();
+	FVector NewLocation = FVector(CurrentPosition.X, CurrentPosition.Y, 100.f);
+	FRotator CurrentRotation = GetOwner()->GetActorRotation();
+	FRotator NewRotation = FRotator(CurrentRotation.Pitch, CurrentRotation.Yaw, 0.0f);
+	GetOwner()->SetActorLocationAndRotation(NewLocation, NewRotation, false);
 }
 
 
