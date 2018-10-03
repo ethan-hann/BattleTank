@@ -16,6 +16,7 @@ class BATTLETANK_API UTankTrack : public UStaticMeshComponent
 	
 public:
 	UTankTrack();
+
 	virtual void BeginPlay() override;
 
 	//Sets a throttle on the track between -1 and +1
@@ -26,7 +27,7 @@ public:
 
 	//Max force per track in Newtons
 	UPROPERTY(EditDefaultsOnly)
-	float TrackMaxDrivingForce = 35000000.0; //Assume 20 ton tank, and 1g acceleration
+	float TrackMaxDrivingForce = 30000000.0; //Assume 20 ton tank, and 1g acceleration
 
 	UFUNCTION()
 	void OnHit(UPrimitiveComponent* HitComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, FVector NormalImpulse, const FHitResult& Hit);

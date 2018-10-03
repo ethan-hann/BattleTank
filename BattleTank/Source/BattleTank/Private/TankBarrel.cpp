@@ -2,7 +2,14 @@
 
 #include "TankBarrel.h"
 #include "Engine/World.h"
+#include "UObject/ConstructorHelpers.h"
 
+//TODO: REMOVE HARD CODED MESH
+UTankBarrel::UTankBarrel()
+{
+	static ConstructorHelpers::FObjectFinder<UStaticMesh>MeshAsset(TEXT("/Game/Meshes/Tank/tank_fbx_Barrel.tank_fbx_Barrel"));
+	this->SetStaticMesh(MeshAsset.Object);
+}
 
 void UTankBarrel::Elevate(float RelativeSpeed)
 {

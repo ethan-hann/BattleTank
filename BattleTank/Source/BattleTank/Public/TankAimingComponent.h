@@ -39,7 +39,7 @@ public:
 	EFiringState GetFiringState() const;
 
 	UFUNCTION(BlueprintCallable, Category = "Functionality")
-	int GetRoundsLeft() const;
+	int32 GetRoundsLeft() const;
 
 protected:
 	UPROPERTY(BlueprintReadOnly, Category = "State")
@@ -61,16 +61,19 @@ private:
 
 	FVector AimDirection;
 
-	UPROPERTY(EditDefaultsOnly, Category = Firing)
-	float LaunchSpeed = 100000; //TODO: find sensible default
+	UPROPERTY(EditDefaultsOnly, Category = "Setup")
+	float LaunchSpeed = 10000.f; //TODO: find sensible default
 
-	UPROPERTY(EditDefaultsOnly, Category = Setup)
+	UPROPERTY(EditDefaultsOnly, Category = "Setup")
 	TSubclassOf<AProjectile> ProjectileBluePrint;
 
-	UPROPERTY(EditDefaultsOnly, Category = Firing)
-	double ReloadTimeInSeconds = 3;
+	UPROPERTY(EditDefaultsOnly, Category = "Firing")
+	float ReloadTimeInSeconds = 3.f;
 
-	double LastFireTime = 0;
+	UPROPERTY(EditDefaultsOnly, Category = "Firing")
+	int32 AmmoRoundsLeft = 3;
 
-	int AmmoRoundsLeft = 3;
+	float LastFireTime = 0;
+
+	
 };
