@@ -7,12 +7,18 @@
 #include "TankTurret.h"
 #include "Projectile.h"
 #include "Kismet/GameplayStatics.h"
+#include "UObject/ConstructorHelpers.h"
 
 
 // Sets default values for this component's properties
 UTankAimingComponent::UTankAimingComponent()
 {
 	PrimaryComponentTick.bCanEverTick = true;
+	static ConstructorHelpers::FClassFinder<AProjectile> Proj(TEXT("/Game/Blueprints/Projectile_BP"));
+	if (Proj.Class)
+	{
+		ProjectileBluePrint = Proj.Class;
+	}
 }
 
 void UTankAimingComponent::BeginPlay()
