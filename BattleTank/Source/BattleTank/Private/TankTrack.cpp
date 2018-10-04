@@ -9,9 +9,9 @@ UTankTrack::UTankTrack()
 	PrimaryComponentTick.bCanEverTick = false;
 
 	//TODO: REMOVE HARD CODED MESH
-	static ConstructorHelpers::FObjectFinder<UStaticMesh>MeshAsset(TEXT("/Game/Meshes/Tank/tank_fbx_Track.tank_fbx_Track"));
+	/*static ConstructorHelpers::FObjectFinder<UStaticMesh>MeshAsset(TEXT("/Game/Meshes/Tank/tank_fbx_Track.tank_fbx_Track"));
 	this->SetStaticMesh(MeshAsset.Object);
-	this->SetCanEverAffectNavigation(false);
+	this->SetCanEverAffectNavigation(false);*/
 }
 
 void UTankTrack::BeginPlay()

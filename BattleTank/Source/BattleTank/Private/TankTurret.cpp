@@ -7,8 +7,8 @@
 //TODO: REMOVE HARD CODED MESH
 UTankTurret::UTankTurret()
 {
-	static ConstructorHelpers::FObjectFinder<UStaticMesh>MeshAsset(TEXT("/Game/Meshes/Tank/tank_fbx_Turret.tank_fbx_Turret"));
-	this->SetStaticMesh(MeshAsset.Object);
+	/*static ConstructorHelpers::FObjectFinder<UStaticMesh>MeshAsset(TEXT("/Game/Meshes/Tank/tank_fbx_Turret.tank_fbx_Turret"));
+	this->SetStaticMesh(MeshAsset.Object);*/
 }
 
 void UTankTurret::Rotate(float RelativeSpeed)

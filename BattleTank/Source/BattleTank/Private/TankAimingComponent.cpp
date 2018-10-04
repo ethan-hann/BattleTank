@@ -14,11 +14,11 @@
 UTankAimingComponent::UTankAimingComponent()
 {
 	PrimaryComponentTick.bCanEverTick = true;
-	static ConstructorHelpers::FClassFinder<AProjectile> Proj(TEXT("/Game/Projectiles/Projectile_BP.Projectile_BP"));
+	/*static ConstructorHelpers::FClassFinder<AProjectile> Proj(TEXT("/Game/Projectiles/Projectile_BP.Projectile_BP"));
 	if (Proj.Class)
 	{
 		ProjectileBluePrint = Proj.Class;
-	}
+	}*/
 }
 
 void UTankAimingComponent::BeginPlay()
